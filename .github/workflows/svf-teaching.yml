@@ -39,7 +39,7 @@ jobs:
       - name: env-setup
         run: |
           npm install svf-lib
-          git clone https://github.com/svf-tools/SVF.git
+          git clone https://github.com/Johanmyst/SVF.git -b build-fixes
           cd SVF
           source build.sh
           # export SVF_DIR, LLVM_DIR, Z3_DIR for later use 
