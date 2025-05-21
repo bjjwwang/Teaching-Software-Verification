@@ -44,11 +44,11 @@ jobs:
           source build.sh
           # export SVF_DIR, LLVM_DIR, Z3_DIR for later use 
           export SVF_DIR=$GITHUB_WORKSPACE/SVF >> $GITHUB_ENV
-          export LLVM_DIR=$GITHUB_WORKSPACE/SVF/llvm-15.0.6 >> $GITHUB_ENV
-          export Z3_DIR=$GITHUB_WORKSPACE/SVF/z3-4.12.1 >> $GITHUB_ENV
+          export LLVM_DIR=$GITHUB_WORKSPACE/SVF/llvm-16.0.0.obj >> $GITHUB_ENV
+          export Z3_DIR=$GITHUB_WORKSPACE/SVF/z3.obj >> $GITHUB_ENV
           
       # build current repo
       - name: build-svf
         run: |
-         cmake .
+         cmake . -DSVF_DIR=$SVF_DIR -DLLVM_DIR=$LLVM_DIR -DZ3_DIR=$Z3_DIR
          make 
