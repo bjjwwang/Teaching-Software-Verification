@@ -50,5 +50,5 @@ jobs:
       # build current repo
       - name: build-svf
         run: |
-         cmake . -DSVF_DIR=$SVF_DIR -DLLVM_DIR=$LLVM_DIR -DZ3_DIR=$Z3_DIR
+         cmake . -DSVF_DIR=$GITHUB_WORKSPACE/SVF -DLLVM_DIR=$GITHUB_WORKSPACE/SVF/llvm-16.0.0.obj -DZ3_DIR=$GITHUB_WORKSPACE/SVF/z3.obj
          make 
