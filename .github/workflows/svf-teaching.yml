@@ -39,10 +39,16 @@ jobs:
       - name: env-setup
         run: |
           npm install svf-lib
+          git clone https://github.com/svf-tools/SVF.git
+          cd SVF
+          source build.sh
+          # export SVF_DIR, LLVM_DIR, Z3_DIR for later use 
+          export SVF_DIR=$GITHUB_WORKSPACE/SVF >> $GITHUB_ENV
+          export LLVM_DIR=$GITHUB_WORKSPACE/SVF/llvm-15.0.6 >> $GITHUB_ENV
+          export Z3_DIR=$GITHUB_WORKSPACE/SVF/z3-4.12.1 >> $GITHUB_ENV
           
       # build current repo
       - name: build-svf
         run: |
-         source $GITHUB_WORKSPACE/env.sh
          cmake .
          make 
